@@ -8,21 +8,21 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-  /**
-   * Создание кафка топика
-   */
-  @Bean
-  public NewTopic javaGuidesTopic() {
-    return TopicBuilder.name("javaGuidesTopic")
-        .partitions(10)
-        .build();
-  }
+    /**
+     * Создание кафка топика
+     */
+    @Bean
+    public NewTopic javaGuidesTopic() {
+        return TopicBuilder
+                .name("javaGuides")
+                .build();
+    }
 
-  @Bean
-  public NewTopic javaGuidesTopicJson() {
-    return TopicBuilder.name("javaGuidesTopicJson")
-        .partitions(10)
-        .build();
-  }
+    @Bean
+    public NewTopic javaGuidesJsonTopic() {
+        return TopicBuilder
+                .name("javaGuidesJson")
+                .build();
+    }
 
 }

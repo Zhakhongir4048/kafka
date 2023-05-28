@@ -8,14 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumer {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
-  /**
-   * Слушатель сообщений, как только мы написали сообщение, оно отображается в логе
-   */
-  @KafkaListener(topics = "javaGuidesTopic", groupId = "myGroup")
-  public void consume(String message) {
-    LOGGER.info("Message received -> {}", message);
-  }
+    @KafkaListener(topics = "javaGuides", groupId = "myGroup")
+    public void consume(String message) {
+        LOGGER.info("Message received -> {}", message);
+    }
 
 }

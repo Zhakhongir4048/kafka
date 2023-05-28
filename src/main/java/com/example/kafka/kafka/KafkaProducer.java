@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaProducer {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(KafkaTemplate.class);
-  private final KafkaTemplate<String, String> kafkaTemplate;
+    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaProducer.class);
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
-  @Autowired
-  public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
-    this.kafkaTemplate = kafkaTemplate;
-  }
+    @Autowired
+    public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
-  public void sendMessage(String message) {
-    LOGGER.info("Message sent {}", message);
-    kafkaTemplate.send("javaGuidesTopic", message);
-  }
+    public void sendMessage(String message) {
+        LOGGER.info("Message sent {}", message);
+        kafkaTemplate.send("javaGuides", message);
+    }
 
 }

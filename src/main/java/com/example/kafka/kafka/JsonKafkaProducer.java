@@ -13,22 +13,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonKafkaProducer {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaProducer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaProducer.class);
 
-  private final KafkaTemplate<String, User> kafkaTemplate;
+    private final KafkaTemplate<String, User> kafkaTemplate;
 
-  @Autowired
-  public JsonKafkaProducer(KafkaTemplate<String, User> kafkaTemplate) {
-    this.kafkaTemplate = kafkaTemplate;
-  }
+    @Autowired
+    public JsonKafkaProducer(KafkaTemplate<String, User> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
-  public void sendMessage(User data) {
-    LOGGER.info("Message sent -> {}", data);
-    Message<User> message = MessageBuilder
-        .withPayload(data)
-        .setHeader(KafkaHeaders.TOPIC, "javaGuidesTopicJson")
-        .build();
-    kafkaTemplate.send(message);
-  }
+    public void sendMessage(User data) {
+        LOGGER.info("Message sent -> {}", data);
+        Message<User> message = MessageBuilder
+                .withPayload(data)
+                .setHeader(KafkaHeaders.TOPIC, "javaGuidesJson")
+                .build();
+        kafkaTemplate.send(message);
+    }
 
 }

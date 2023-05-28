@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonKafkaConsumer {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaConsumer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaConsumer.class);
 
-  /**
-   * Слушатель сообщений, как только мы написали сообщение, оно отображается в логе
-   */
-  @KafkaListener(topics = "javaGuidesTopicJson", groupId = "myGroup")
-  public void consume(User user) {
-    LOGGER.info("Json message received -> {}", user);
-  }
+    /**
+     * Слушатель сообщений, как только мы написали сообщение, оно отображается в логе
+     */
+    @KafkaListener(topics = "javaGuidesJson", groupId = "myGroup")
+    public void consume(User user) {
+        LOGGER.info("Json message received -> {}", user);
+    }
 
 }
